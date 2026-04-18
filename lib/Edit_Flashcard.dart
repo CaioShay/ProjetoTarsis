@@ -29,7 +29,9 @@ IconButton ibVoltar(BuildContext context){
     onPressed: (){
       Navigator.pop(context);
     },
-    icon: Icon(Icons.arrow_back),
+    icon: Icon(Icons.arrow_back,
+      color: Colors.white,
+    ),
   );
 }
 
@@ -40,7 +42,7 @@ FloatingActionButton fabSalvar(){
       print(controller2.text);
     },
     backgroundColor: Colors.blue,
-    child: Text('Salvar'),
+    child: Icon(Icons.check,color: Colors.white,),
     );
 }
 
@@ -50,16 +52,21 @@ Column body(){
       Text('Pergunta'),
       textField(controller1),
 
-      Container(
-        margin: EdgeInsets.symmetric(
-          horizontal: 15,
-          vertical: 20,
-        ),
-        child: Divider(),
+      SizedBox(
+        height: 10,
       ),
-      
+
+      Divider(
+          indent: 20,
+          endIndent: 20,
+      ),
+
+      SizedBox(
+        height: 10,
+      ),
+
       Text('Resposta'),
-      textField(controller2),
+      textField(controller2)
     ],
   );
 }

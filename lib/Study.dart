@@ -24,36 +24,41 @@ IconButton voltarButton(BuildContext context){
     onPressed: (){
       Navigator.pop(context);
     },
-     icon: Icon(Icons.arrow_back),
+     icon: Icon(Icons.arrow_back,color:Colors.white),
      ) ;
 }
 
 Column body(){
   return Column(
     children: [
-      Center(child: Text('Quantos Continentes existe?'),)
+      SizedBox(
+        height: 10,
+      ),
+
+      Center(child: Text('Quantos Continentes existe?'),),
+
+      SizedBox(
+        height: 10,
+      ),
+
+      Divider(
+        indent: 20,
+        endIndent: 20,
+      )
     ],
   );
 }
 
-Container downBar(){
-  return Container(
-    height: 70,
-
-    decoration: BoxDecoration(
-      color: Colors.blue
-    ),
-
+SizedBox downBar(){
+  return SizedBox(
+    height: 80,
     child: ElevatedButton(
-      onPressed: (){
-
-      }, 
-
+      onPressed: (){},
       style: ElevatedButton.styleFrom(
-        shape: BeveledRectangleBorder()
+        shape: BeveledRectangleBorder(),
+        backgroundColor: const Color.fromARGB(255, 225, 225, 225),
       ),
-
-      child: Text('Mostrar resposta')
-      ),
+      child: Text('Mostrar resposta'),
+    ),
   );
 }
