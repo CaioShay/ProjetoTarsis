@@ -9,22 +9,22 @@ class Edit_Flashcard extends StatelessWidget{
   Widget build(BuildContext context){
 
     return Scaffold(
-        appBar: appBar(context),
+        appBar: appBar(),
         floatingActionButton: fabSalvar(),
         body: body()
       );
   }
 }
 
-AppBar appBar(BuildContext context){
+AppBar appBar(){
   return AppBar(
     title: Text('Editar Flashcard',style: TextStyle(color:Colors.white)),
     backgroundColor: Color(0xFF202020),
-    leading: ibVoltar(context),
+    leading: ibVoltar(),
   );
 }
 
-IconButton ibVoltar(BuildContext context){
+IconButton ibVoltar(){
   return IconButton(
     onPressed: (){
     },
