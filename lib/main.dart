@@ -5,7 +5,7 @@ import 'Study.dart';
 void main(){
   runApp(
     MaterialApp(
-      home: Edit_Flashcard(),
+      home: Study(),
     )
   );
 }
