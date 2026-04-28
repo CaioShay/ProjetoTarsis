@@ -18,8 +18,8 @@ class Edit_Flashcard extends StatelessWidget{
 
 AppBar appBar(BuildContext context){
   return AppBar(
-    title: Text('Editar Flashcard'),
-    backgroundColor: Colors.blue,
+    title: Text('Editar Flashcard',style: TextStyle(color:Colors.white)),
+    backgroundColor: Color(0xFF202020),
     leading: ibVoltar(context),
   );
 }
@@ -27,8 +27,8 @@ AppBar appBar(BuildContext context){
 IconButton ibVoltar(BuildContext context){
   return IconButton(
     onPressed: (){
-      Navigator.pop(context);
     },
+
     icon: Icon(Icons.arrow_back,
       color: Colors.white,
     ),
@@ -37,10 +37,7 @@ IconButton ibVoltar(BuildContext context){
 
 FloatingActionButton fabSalvar(){
   return FloatingActionButton(
-    onPressed: (){
-      print(controller1.text);
-      print(controller2.text);
-    },
+    onPressed: (){},
     backgroundColor: Colors.blue,
     child: Icon(Icons.check,color: Colors.white,),
     );
@@ -74,6 +71,7 @@ Column body(){
 TextField textField(TextEditingController controller){
   return TextField(
         controller: controller,
+        
         decoration: InputDecoration(
           labelText: 'Digite algo',
           border: OutlineInputBorder(),

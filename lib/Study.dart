@@ -13,8 +13,8 @@ class Study extends StatelessWidget {
 
 AppBar appBar(BuildContext context){
   return AppBar(
-    title:Text('Estudar'),
-    backgroundColor: Colors.blue,
+    title:Text('Estudar',style: TextStyle(color: Colors.white),),
+    backgroundColor: Color(0xFF202020),
     leading: voltarButton(context),
   );
 }
@@ -22,7 +22,6 @@ AppBar appBar(BuildContext context){
 IconButton voltarButton(BuildContext context){
   return IconButton(
     onPressed: (){
-      Navigator.pop(context);
     },
      icon: Icon(Icons.arrow_back,color:Colors.white),
      ) ;
@@ -49,16 +48,18 @@ Column body(){
   );
 }
 
-SizedBox downBar(){
+SizedBox downBar() {
   return SizedBox(
-    height: 80,
+    height: 100,
+    width: 100,
     child: ElevatedButton(
-      onPressed: (){},
+      onPressed:(){},
       style: ElevatedButton.styleFrom(
-        shape: BeveledRectangleBorder(),
-        backgroundColor: const Color.fromARGB(255, 225, 225, 225),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.zero
+        )
       ),
-      child: Text('Mostrar resposta'),
-    ),
+      child: Text('Mostrar reposta')),
+
   );
 }
