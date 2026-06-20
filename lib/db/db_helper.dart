@@ -3,9 +3,9 @@ import 'package:path/path.dart';
 import 'dart:async';
 
 class DBHelper {
-  initDB() async {
+  Future<Database> initDB() async {
     String path = await getDatabasesPath();
-    String dbName = 'mydb';
+    String dbName = 'mydb.db';
     String dbPath = join(path, dbName);
 
     Database db = await openDatabase(dbPath, version: 1, onCreate: onCreateDB);
@@ -15,20 +15,35 @@ class DBHelper {
   FutureOr<void> onCreateDB(Database db, int version) async {
     String sql = '''CREATE TABLE MUSIC (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
-      titulo TEXT NOT NULL ,
-      audio TEXT NOT NULL,
-      image TEXT,
+      titulo TEXT NOT NULL,
+      audio_address TEXT NOT NULL,
+      image_url TEXT,
+      reproducoes INTEGER NOt NULL
     );''';
 
     await db.execute(sql);
 
     //Adcionando BAD de Michael Jackson
     sql =
-        '''INSERT INTO MUSIC (titulo,image,audioi) VALUES(
+        '''INSERT INTO MUSIC (titulo,image_url,audio_address,reproducoes) VALUES(
         'Bad',
         'https://upload.wikimedia.org/wikipedia/pt/5/51/Michael_Jackson_-_Bad.png',
-        'ADRESS');
+        'ADRESS',
+        1000000
+        );
     ''';
+
+    await db.execute(sql);
+
+    sql = '''CREATE TABLE HISTORICO (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      id_musica INTEGER NOT NULL,
+      FOREIGN KEY (id_musica) REFERENCES MUSIC(id)
+    );''';
+
+    await db.execute(sql);
+
+    sql = '''INSERT INTO HISTORICO (id_musica) VALUES (1)''';
 
     await db.execute(sql);
   }

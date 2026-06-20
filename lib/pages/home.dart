@@ -12,7 +12,9 @@ class HomePage extends StatefulWidget{
 }
 
 class _HomeState extends State<HomePage>{
-  List<Music> musics = [];
+  List<Music> continuar_ouvindo = [];
+  List<Music> musicas_mais_populares = [];
+
   @override
   void initState() {
     super.initState();
@@ -20,7 +22,8 @@ class _HomeState extends State<HomePage>{
   }
 
   void loadData() async{
-    musics = await MusicsDao().getMusics();
+    musicas_mais_populares = await MusicsDao().getMaisReproduzidas();
+    continuar_ouvindo = await MusicsDao().getHistorico();
     await Future.delayed(Duration(seconds: 3));
     setState(() {});
   }
@@ -31,17 +34,23 @@ class _HomeState extends State<HomePage>{
       children: [
         SizedBox(
           height: 200,
-          child: mais_populares(musics),
+          child: listView_musicas(musicas_mais_populares),
+        ),
+
+        SizedBox(
+          height: 200,
+          child: listView_musicas(musicas_mais_populares),
         )
       ],
       );
   }
 }
 
-Widget mais_populares(List<Music> musics){
+Widget listView_musicas(List<Music> musics){
   return ListView.builder(
     itemCount: musics.length,
     itemBuilder: (conxtet,i){
+      print(i);
       return MusicContainer(music: musics[i]);
     },
   );

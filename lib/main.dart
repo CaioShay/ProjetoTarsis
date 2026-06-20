@@ -21,14 +21,17 @@ class _AppState extends State<App> {
     return Scaffold(
       body:pages[SelectedIndex],
 
-      appBar: AppBar(title: Text('Aplicativo de músico')),
+      appBar: AppBar(
+        title: Text('Aplicativo de músics',style: TextStyle(color: Colors.white),),
+        backgroundColor: Colors.black,
+        ),
 
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: SelectedIndex,
         
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home2'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Pesquisar'),
         ],
         
         onTap: (index){
