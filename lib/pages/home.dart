@@ -34,9 +34,9 @@ class _HomeState extends State<HomePage>{
       children: [
         SizedBox(
           height: 200,
-          child: listView_musicas(musicas_mais_populares),
+          child: listView_musicas(continuar_ouvindo),
         ),
-
+        SizedBox(height: 20,),
         SizedBox(
           height: 200,
           child: listView_musicas(musicas_mais_populares),

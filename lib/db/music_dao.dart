@@ -6,20 +6,6 @@ import 'package:sqflite/sqflite.dart';
 import './db_helper.dart';
 
 class MusicsDao {
-  Future<List<Music>> getMusics() async{
-    Database db = await DBHelper().initDB();
-    List<Music> musics = [];
-    
-    var listResult = await db.rawQuery('SELECT * FROM MUSIC;');
-
-    for (var json in listResult){
-      Music music = Music.fromJson(json);
-      musics.add(music);
-    }
-
-    return musics;
-  }
-
   Future<List<Music>> getMaisReproduzidas() async{
     Database db = await DBHelper().initDB();
     List<Music> musics = [];
@@ -38,12 +24,11 @@ class MusicsDao {
     Database db = await DBHelper().initDB();
     List<Music> musics = [];
     
-    var listResult = await db.rawQuery('SELECT * FROM HISTORICO ORDER BY id DESC');
-    List<int> id_list = [];
+    var listResult = await db.rawQuery('SELECT m.* FROM HISTORICO h JOIN MUSIC m ON h.id_musica = m.id ORDER BY h.id DESC');
 
     for (var json in listResult){
-      Historico historico = Historico.fromJson(json);
-      id_list.add(historico.id_musica);
+      Music music = Music.fromJson(json);
+      musics.add(music);
     }
 
     return musics;
