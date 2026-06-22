@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto/pages/library.dart';
 import 'package:projeto/pages/search.dart';
 import './pages/home.dart';
+
 void main() {
   runApp(MaterialApp(home: App()));
 }

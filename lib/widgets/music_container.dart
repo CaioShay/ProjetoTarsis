@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto/domain/audioPlayerHandler.dart';
-import 'package:projeto/domain/music.dart';
+import 'package:projeto/domain/Music.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 class MusicContainer extends StatelessWidget {
