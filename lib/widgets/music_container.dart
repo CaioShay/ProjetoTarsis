@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:projeto/domain/Music.dart';
+import 'package:projeto/domain/audioPlayerHandler.dart';
+import 'package:projeto/domain/music.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class MusicContainer extends StatelessWidget {
   final Music music;
@@ -16,10 +17,13 @@ class MusicContainer extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                child: Image.network(music.image),
+                child: Image.network(music.image_url),
               ),
               FloatingActionButton(
-                onPressed: ()=>{},
+                onPressed: ()=>{
+                  
+                  AudioPlayerHandler.audioPlayer.play(AssetSource(music.audio_path))
+                },
                 backgroundColor: Colors.green,
                 child: Icon(Icons.play_arrow,color: Colors.white,),
               )

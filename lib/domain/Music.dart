@@ -1,17 +1,17 @@
 class Music{
   late String titulo;
-  late String audio;
-  late String image;
+  late String audio_path;
+  late String image_url;
 
   Music({
     required this.titulo,
-    required this.audio,
-    required this.image
+    required this.audio_path,
+    required this.image_url
   });
 
   Music.fromJson(Map<String,dynamic> json){
     titulo = json['titulo'];
-    audio = json['audio'];
-    image = json['image'];
+    audio_path = json['audio_path'];
+    image_url = json['image_url'];
   }
 }

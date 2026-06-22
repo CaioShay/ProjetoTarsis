@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:projeto/widgets/music_container.dart';
-import '../db/music_dao.dart';
-import '../domain/Music.dart';
+import 'package:projeto/db/music_dao.dart';
+import 'package:projeto/domain/music.dart';
 
 MusicsDao music_dao = MusicsDao();
 
 class HomePage extends StatefulWidget{
+  const HomePage({super.key});
+
   @override
   State<HomePage> createState() => _HomeState();
 }
@@ -22,6 +23,7 @@ class _HomeState extends State<HomePage>{
   }
 
   void loadData() async{
+    print('Loading data!');
     musicas_mais_populares = await MusicsDao().getMaisReproduzidas();
     continuar_ouvindo = await MusicsDao().getHistorico();
     await Future.delayed(Duration(seconds: 3));

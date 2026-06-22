@@ -16,7 +16,7 @@ class DBHelper {
     String sql = '''CREATE TABLE MUSIC (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       titulo TEXT NOT NULL,
-      audio_address TEXT NOT NULL,
+      audio_path TEXT NOT NULL,
       image_url TEXT,
       reproducoes INTEGER NOt NULL
     );''';
@@ -25,10 +25,10 @@ class DBHelper {
 
     //Adcionando BAD de Michael Jackson
     sql =
-        '''INSERT INTO MUSIC (titulo,image_url,audio_address,reproducoes) VALUES(
+        '''INSERT INTO MUSIC (titulo,image_url,audio_path,reproducoes) VALUES(
         'Bad',
         'https://upload.wikimedia.org/wikipedia/pt/5/51/Michael_Jackson_-_Bad.png',
-        'ADRESS',
+        'audio/Bad.mp3',
         1000000
         );
     ''';
@@ -43,7 +43,7 @@ class DBHelper {
 
     await db.execute(sql);
 
-    sql = '''INSERT INTO HISTORICO (id_musica) VALUES (1)''';
+    sql = '''INSERT INTO HISTORICO (id_musica) VALUES (1);''';
 
     await db.execute(sql);
   }
