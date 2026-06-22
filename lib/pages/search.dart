@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto/domain/music.dart';
+import 'package:projeto/domain/Music.dart';
 import 'package:projeto/db/music_dao.dart';
 import 'package:projeto/widgets/music_container.dart';
 
@@ -24,7 +24,7 @@ class _StateSearch extends State<Search>{
   void on_searched() async{
     String text = controller.text;
 
-    searched_musics = await MusicsDao().pesquisar(text);
+    searched_musics = await MusicDao().pesquisar(text);
     setState(() {
       
     });

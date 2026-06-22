@@ -1,9 +1,9 @@
 import 'dart:async';
-import 'package:projeto/domain/music.dart';
+import 'package:projeto/domain/Music.dart';
 import 'package:sqflite/sqflite.dart';
 import './db_helper.dart';
 
-class MusicsDao {
+class MusicDao {
   Future<List<Music>> getMaisReproduzidas() async{
     Database db = await DBHelper().initDB();
     List<Music> musics = [];

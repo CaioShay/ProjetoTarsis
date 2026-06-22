@@ -4,9 +4,9 @@ import 'package:projeto/domain/music.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 class MusicContainer extends StatelessWidget {
-  final Music music;
+  late Music music;
 
-  const MusicContainer({super.key, required this.music});
+  MusicContainer({super.key, required this.music});
 
   @override
   Widget build(BuildContext context){

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto/widgets/music_container.dart';
 import '../db/music_dao.dart';
-import '../domain/music.dart';
-
-MusicsDao music_dao = MusicsDao();
+import '../domain/Music.dart';
 
 class HomePage extends StatefulWidget{
   @override
@@ -21,8 +19,8 @@ class _HomeState extends State<HomePage>{
   }
 
   void loadData() async{
-    musicas_mais_populares = await MusicsDao().getMaisReproduzidas();
-    continuar_ouvindo = await MusicsDao().getHistorico();
+    musicas_mais_populares = await MusicDao().getMaisReproduzidas();
+    continuar_ouvindo = await MusicDao().getHistorico();
 
     await Future.delayed(Duration(seconds: 3));
     setState(() {});
@@ -50,7 +48,7 @@ class _HomeState extends State<HomePage>{
 Widget listView_music(List<Music> musics){
   return ListView.builder(
     itemCount: musics.length,
-    itemBuilder: (conxtet,i){
+    itemBuilder: (context,i){
       return MusicContainer(music: musics[i]);
     },
   );
