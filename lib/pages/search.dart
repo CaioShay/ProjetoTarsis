@@ -31,7 +31,7 @@ class _StateSearch extends State<Search>{
   }
   @override
   Widget build(BuildContext context){
-    return ListView(
+    return Column(
       children: [
         SizedBox(height: 10,)
         ,SearchBar(
@@ -39,11 +39,14 @@ class _StateSearch extends State<Search>{
         hintText: 'Pesquisar',
         controller: controller,
       ),
-      ListView.builder(
-        itemCount: searched_musics.length,
-        itemBuilder: (context,i){
-          return MusicContainer(music: searched_musics[i]);
-      })
+        Expanded(
+          child: ListView.builder(
+            itemCount: searched_musics.length,
+            itemBuilder: (context,i){
+              return MusicContainer(music: searched_musics[i]);
+            },
+          ),
+        )
       ],
     );
   }

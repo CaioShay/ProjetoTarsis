@@ -36,7 +36,7 @@ class MusicDao {
     Database db = await DBHelper().initDB();
     List<Music> musics = [];
     
-    var listResult = await db.rawQuery('Select * FROM MUSIC WHERE titulo LIKE ?;',['%$text%']);
+    var listResult = await db.rawQuery('Select * FROM MUSIC WHERE titulo LIKE ?;',['$text%']);
 
     for (var json in listResult){
       Music music = Music.fromJson(json);

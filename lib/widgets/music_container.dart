@@ -10,31 +10,40 @@ class MusicContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context){
-    return Container(
-      child: Column(
-        children: [
-          Stack(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.network(music.image_url),
-              ),
-              FloatingActionButton(
-                onPressed: ()=>{
-                  
-                  AudioPlayerHandler.audioPlayer.play(AssetSource(music.audio_path))
-                },
-                backgroundColor: Colors.green,
-                child: Icon(Icons.play_arrow,color: Colors.white,),
-              )
+    return ClipRRect(
+      borderRadius: BorderRadiusGeometry.circular(10),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.grey,
+        ),
+        padding: EdgeInsets.all(20),
+        child: Column(
+          children: [
+           Stack(
+             children: [
+               ClipRRect(
+                 borderRadius: BorderRadiusGeometry.circular(20),
+                 child: Image.network(music.image_url),
+               ),
+               Positioned(
+                 right: 0,
+                 bottom: 0,
+                 child: FloatingActionButton(
+                   onPressed: (){},
+                   backgroundColor: Colors.green,
+                   child: Icon(
+                       Icons.play_arrow,
+                     color: Colors.white,
 
-            ],
-          ),
-
-          SizedBox(height: 20),
-
-          Text(music.titulo)
-        ],
+                   ),
+                 ),
+               )
+             ],
+           ),
+            SizedBox(height: 20),
+            Text(music.titulo,style: TextStyle(fontSize: 25),)
+          ],
+        ),
       ),
     );
   }

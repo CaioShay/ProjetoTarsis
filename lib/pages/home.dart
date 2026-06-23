@@ -29,18 +29,20 @@ class _HomeState extends State<HomePage>{
   @override
   Widget build (BuildContext context){
     return ListView(
+
       children: [
-        SizedBox(
-          height: 200,
-          child: listView_music(musicas_mais_populares),
-        ),
+        Text('Continuar ouvindo'),
         SizedBox(
           height: 200,
           child: listView_music(continuar_ouvindo),
+        ),
+        SizedBox(height: 200,),
+        SizedBox(
+          height: 200,
+          child: listView_music(musicas_mais_populares),
         )
       ],
 
-      
       );
   }
 }
