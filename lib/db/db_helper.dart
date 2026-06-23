@@ -35,6 +35,28 @@ class DBHelper {
 
     await db.execute(sql);
 
+    sql =
+    '''INSERT INTO MUSIC (titulo,image_url,audio_path,reproducoes) VALUES(
+        'Eye of The Tiger',
+        'https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/Eye_of_the_Tiger_Survivor.jpg/250px-Eye_of_the_Tiger_Survivor.jpg',
+        'audio/Bad.mp3',
+        500000
+        );
+    ''';
+
+    await db.execute(sql);
+
+    sql =
+    '''INSERT INTO MUSIC (titulo,image_url,audio_path,reproducoes) VALUES(
+        'Feel Good Inc.',
+        'https://upload.wikimedia.org/wikipedia/pt/3/38/Feel_Good_Inc._single.jpg',
+        'audio/Bad.mp3',
+        450000
+        );
+    ''';
+
+    await db.execute(sql);
+
     sql = '''CREATE TABLE HISTORICO (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       id_musica INTEGER NOT NULL,

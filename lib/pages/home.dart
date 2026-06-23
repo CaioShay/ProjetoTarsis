@@ -31,12 +31,13 @@ class _HomeState extends State<HomePage>{
     return ListView(
 
       children: [
-        Text('Continuar ouvindo'),
+        Text('Continuar ouvindo',style: TextStyle(fontSize: 30),),
         SizedBox(
-          height: 200,
+          height:200,
           child: listView_music(continuar_ouvindo),
         ),
-        SizedBox(height: 200,),
+        SizedBox(height: 50,),
+        Text('Músicas mais populares',style: TextStyle(fontSize: 30),),
         SizedBox(
           height: 200,
           child: listView_music(musicas_mais_populares),
@@ -49,9 +50,15 @@ class _HomeState extends State<HomePage>{
 
 Widget listView_music(List<Music> musics){
   return ListView.builder(
+    scrollDirection: Axis.horizontal,
     itemCount: musics.length,
     itemBuilder: (context,i){
-      return MusicContainer(music: musics[i]);
+      return Row(
+        children: [
+          MusicContainer(music: musics[i],width: 200,height: 200,),
+          SizedBox(width: 10,)
+        ],
+      );
     },
   );
 }

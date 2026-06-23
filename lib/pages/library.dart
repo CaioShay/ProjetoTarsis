@@ -29,7 +29,7 @@ class _StateLibrary extends State<Library>{
     return ListView.builder(
       itemCount: musics.length,
       itemBuilder:(context, i){
-        return MusicContainer(music: musics[i]);
+        return MusicContainer(music: musics[i],width: 500,height: 500,);
       },
     );
   }

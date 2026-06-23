@@ -5,14 +5,17 @@ import 'package:audioplayers/audioplayers.dart';
 
 class MusicContainer extends StatelessWidget {
   late Music music;
-
-  MusicContainer({super.key, required this.music});
+  late double width;
+  late double height;
+  MusicContainer({super.key, required this.music, required this.width,required this.height});
 
   @override
   Widget build(BuildContext context){
     return ClipRRect(
       borderRadius: BorderRadiusGeometry.circular(10),
       child: Container(
+        width: width,
+        height: height,
         decoration: BoxDecoration(
           color: Colors.grey,
         ),
@@ -23,7 +26,10 @@ class MusicContainer extends StatelessWidget {
              children: [
                ClipRRect(
                  borderRadius: BorderRadiusGeometry.circular(20),
-                 child: Image.network(music.image_url),
+                 child: Image.network(
+                     music.image_url,
+                    fit: BoxFit.cover,
+                 ),
                ),
                Positioned(
                  right: 0,

@@ -43,7 +43,7 @@ class _StateSearch extends State<Search>{
           child: ListView.builder(
             itemCount: searched_musics.length,
             itemBuilder: (context,i){
-              return MusicContainer(music: searched_musics[i]);
+              return MusicContainer(music: searched_musics[i],width: 500,height: 500,);
             },
           ),
         )
