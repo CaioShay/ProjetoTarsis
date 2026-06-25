@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto/domain/audioPlayerHandler.dart';
 import 'package:projeto/domain/Music.dart';
-import 'package:audioplayers/audioplayers.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MusicCard extends StatelessWidget {
   late Music music;
@@ -15,7 +15,7 @@ class MusicCard extends StatelessWidget {
       width: width,
       height: height,
       child: Card(
-        elevation: 3,
+        elevation: 5,
         color: Color.fromRGBO(100,100,100,.8),
         shadowColor: Color.fromRGBO(50,0,170,1),
         child: Padding(
@@ -45,9 +45,9 @@ class MusicCard extends StatelessWidget {
                   ],
                 )
               ),
-              Text(music.titulo,style: TextStyle(
-                color: Colors.white,
-                fontSize: 17
+              Text(music.titulo,style: GoogleFonts.nunito(
+                  fontSize: 20,
+                  color: Colors.white
               ),)
             ],
           ),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projeto/widgets/music_card.dart';
-import '../db/music_dao.dart';
-import '../domain/Music.dart';
+import 'package:projeto/db/music_dao.dart';
+import 'package:projeto/domain/Music.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget{
   @override
@@ -30,13 +31,15 @@ class _HomeState extends State<HomePage>{
     return ListView(
 
       children: [
-        Text('Continuar ouvindo',style: TextStyle(fontSize: 30),),
+        Text('Continuar ouvindo',style: GoogleFonts.nunito(
+          fontSize: 20
+        )),
         SizedBox(
           height:200,
           child: listView_music(continuar_ouvindo),
         ),
         SizedBox(height: 50,),
-        Text('Músicas mais populares',style: TextStyle(fontSize: 30),),
+        Text('Músicas mais populares',style: GoogleFonts.nunito(fontSize: 20),),
         SizedBox(
           height: 200,
           child: listView_music(musicas_mais_populares),

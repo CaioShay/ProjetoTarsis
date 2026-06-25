@@ -7,9 +7,6 @@ import 'package:google_fonts/google_fonts.dart';
 void main() {
   runApp(MaterialApp(
       home: App(),
-      theme: ThemeData(
-        textTheme:  GoogleFonts.nunitoTextTheme()
-      ),
   )
   );
 }
@@ -35,7 +32,10 @@ class _AppState extends State<App> {
       body:pages[SelectedIndex],
 
       appBar: AppBar(
-        title: Text('Aplicativo de música',style: TextStyle(color: Colors.white),),
+        title: Text('Aplicativo de música',style: GoogleFonts.nunito(
+            fontSize: 20,
+            color: Colors.white
+        ),),
         backgroundColor: Colors.black,
         
         ),
