@@ -26,12 +26,14 @@ class _StateLibrary extends State<Library>{
   }
   @override
   Widget build(BuildContext context){
-    return ListView.builder(
+    return GridView.builder(
       itemCount: musics.length,
-      itemBuilder:(context, i){
-        return MusicContainer(music: musics[i],width: 500,height: 500,);
-      },
-    );
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2
+        ),
+        itemBuilder: (context,i){
+          return MusicContainer(music: musics[i], width: 400, height: 400);
+        });
   }
 
 }

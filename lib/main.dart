@@ -4,7 +4,12 @@ import 'package:projeto/pages/search.dart';
 import './pages/home.dart';
 
 void main() {
-  runApp(MaterialApp(home: App()));
+  runApp(MaterialApp(
+      home: App(),
+      theme: ThemeData(
+        fontFamily: 'Nunito'
+      ),
+  ));
 }
 
 class App extends StatefulWidget {

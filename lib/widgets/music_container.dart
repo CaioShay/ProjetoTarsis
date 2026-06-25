@@ -11,45 +11,47 @@ class MusicContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context){
-    return ClipRRect(
-      borderRadius: BorderRadiusGeometry.circular(10),
-      child: Container(
-        width: width,
-        height: height,
-        decoration: BoxDecoration(
-          color: Colors.grey,
-        ),
-        padding: EdgeInsets.all(20),
-        child: Column(
-          children: [
-           Stack(
-             children: [
-               ClipRRect(
-                 borderRadius: BorderRadiusGeometry.circular(20),
-                 child: Image.network(
-                     music.image_url,
-                    fit: BoxFit.cover,
-                 ),
-               ),
-               Positioned(
-                 right: 0,
-                 bottom: 0,
-                 child: FloatingActionButton(
-                   onPressed: (){},
-                   backgroundColor: Colors.green,
-                   child: Icon(
-                       Icons.play_arrow,
-                     color: Colors.white,
-
-                   ),
-                 ),
-               )
-             ],
-           ),
-            SizedBox(height: 20),
-            Text(music.titulo,style: TextStyle(fontSize: 25),)
-          ],
-        ),
+    return SizedBox(
+      width: width,
+      height: height,
+      child: Card(
+        elevation: 3,
+        color: Color.fromRGBO(100,100,100,.8),
+        shadowColor: Color.fromRGBO(50,0,170,1),
+        child: Padding(
+          padding: EdgeInsetsGeometry.fromLTRB(10, 10, 10, 0),
+          child: Column(
+            children: [
+              Expanded(
+                child: Stack(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.network(
+                        music.image_url,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Positioned(
+                      right: 0,
+                      bottom: 0,
+                      child: FloatingActionButton(
+                        onPressed: (){},
+                        backgroundColor: Colors.green,
+                        child: Icon(Icons.play_arrow,color: Colors.white,),
+                      ),
+                    )
+                  ],
+                )
+              ),
+              Text(music.titulo,style: TextStyle(
+                color: Colors.white,
+                fontSize: 17
+              ),)
+            ],
+          ),
+        )
       ),
     );
   }

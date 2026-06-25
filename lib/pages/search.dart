@@ -40,12 +40,14 @@ class _StateSearch extends State<Search>{
         controller: controller,
       ),
         Expanded(
-          child: ListView.builder(
+          child: GridView.builder(
             itemCount: searched_musics.length,
-            itemBuilder: (context,i){
-              return MusicContainer(music: searched_musics[i],width: 500,height: 500,);
-            },
-          ),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+              ),
+              itemBuilder: (context,i){
+                return MusicContainer(music: searched_musics[i],width: double.infinity,height: 400,);
+              })
         )
       ],
     );

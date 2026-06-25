@@ -22,7 +22,6 @@ class _HomeState extends State<HomePage>{
     musicas_mais_populares = await MusicDao().getMaisReproduzidas();
     continuar_ouvindo = await MusicDao().getHistorico();
 
-    await Future.delayed(Duration(seconds: 3));
     setState(() {});
   }
 
