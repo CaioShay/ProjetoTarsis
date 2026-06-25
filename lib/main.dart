@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:projeto/pages/library.dart';
 import 'package:projeto/pages/search.dart';
-import './pages/home.dart';
+import 'package:projeto/pages/home.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MaterialApp(
       home: App(),
       theme: ThemeData(
-        fontFamily: 'Nunito'
+        textTheme:  GoogleFonts.nunitoTextTheme()
       ),
-  ));
+  )
+  );
 }
 
 class App extends StatefulWidget {

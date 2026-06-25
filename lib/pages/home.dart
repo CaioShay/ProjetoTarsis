@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto/widgets/music_container.dart';
+import 'package:projeto/widgets/music_card.dart';
 import '../db/music_dao.dart';
 import '../domain/Music.dart';
 
@@ -54,7 +54,7 @@ Widget listView_music(List<Music> musics){
     itemBuilder: (context,i){
       return Row(
         children: [
-          MusicContainer(music: musics[i],width: 200,height: 200,),
+          MusicCard(music: musics[i],width: 200,height: 200,),
           SizedBox(width: 10,)
         ],
       );

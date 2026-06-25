@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto/domain/Music.dart';
 import 'package:projeto/db/music_dao.dart';
-import 'package:projeto/widgets/music_container.dart';
+import 'package:projeto/widgets/music_card.dart';
 
 class Search extends StatefulWidget{
   const Search({super.key});
@@ -46,7 +46,7 @@ class _StateSearch extends State<Search>{
                 crossAxisCount: 2,
               ),
               itemBuilder: (context,i){
-                return MusicContainer(music: searched_musics[i],width: double.infinity,height: 400,);
+                return MusicCard(music: searched_musics[i],width: double.infinity,height: 400,);
               })
         )
       ],

@@ -3,11 +3,11 @@ import 'package:projeto/domain/audioPlayerHandler.dart';
 import 'package:projeto/domain/Music.dart';
 import 'package:audioplayers/audioplayers.dart';
 
-class MusicContainer extends StatelessWidget {
+class MusicCard extends StatelessWidget {
   late Music music;
   late double width;
   late double height;
-  MusicContainer({super.key, required this.music, required this.width,required this.height});
+  MusicCard({super.key, required this.music, required this.width,required this.height});
 
   @override
   Widget build(BuildContext context){
