@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:projeto/domain/audioPlayerHandler.dart';
 import 'package:projeto/domain/Music.dart';
 import 'package:google_fonts/google_fonts.dart';
 
