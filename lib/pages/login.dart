@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto/db/user_dao.dart';
 import 'package:projeto/db/shared_prefs.dart';
-import 'package:projeto/pages/home.dart'
+import 'package:projeto/pages/home.dart';
 
 class LoginPage extends StatefulWidget{
   @override State<LoginPage> createState() => _LoginPageState();
