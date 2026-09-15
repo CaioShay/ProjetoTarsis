@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:projeto/widgets/music_card.dart';
 import 'package:projeto/db/music_dao.dart';
-import 'package:projeto/domain/music.dart';
+import 'package:projeto/domain/Music.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
