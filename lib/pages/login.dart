@@ -8,8 +8,8 @@ class LoginPage extends StatefulWidget{
 }
 
 class _LoginPageState extends State<LoginPage>{
-  UserDao user_dao = UserDao()
-  SharedPrefs prefs = SharedPrefs()
+  UserDao user_dao = UserDao();
+  SharedPrefs prefs = SharedPrefs();
 
   TextEditingController controller1 = TextEditingController();
   TextEditingController controller2 = TextEditingController();
@@ -28,9 +28,10 @@ class _LoginPageState extends State<LoginPage>{
             controller: controller2,
           ),
           SizedBox(height: 100),
-          ElevatedButton(onPressed: (){
-              if (user_dao.login(controller1,controller2)){
-                prefs.setUserStatus(true);
+          ElevatedButton(onPressed: () async{
+              final sucess = await user_dao.login(controller1.text,controller2.text);
+              if (sucess) {
+                await prefs.setUserStatus(true);
 
                 Navigator.pushReplacement(
           context,
