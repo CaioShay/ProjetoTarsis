@@ -11,10 +11,6 @@ class UserDao {
 
       final data = response.data;
 
-      print(data);
-      print(data[0]);
-      print(data[0]['username']);
-
       return data.any((account){
         return account['username'] == username && account['password'] == password;
       });

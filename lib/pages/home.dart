@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:projeto/pages/explore.dart';
+import 'package:projeto/pages/search.dart';
+import 'package:projeto/pages/library.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:projeto/widgets/music_card.dart';
-import 'package:projeto/db/music_dao.dart';
-import 'package:projeto/domain/Music.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,100 +12,43 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late Future<List<Music>> _musicasMaisPopulares;
-  late Future<List<Music>> _continuarOuvindo;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _musicasMaisPopulares = MusicDao().getMaisReproduzidas();
-    _continuarOuvindo = MusicDao().getHistorico();
-  }
+  int SelectedIndex = 1;
+  final pages = [
+    ExplorePage(),
+    Search(),
+    Library()
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-      children: [
-        _SectionTitle('Continuar ouvindo'),
-        const SizedBox(height: 8),
-        SizedBox(
-          height: 200,
-          child: _MusicHorizontalList(
-            future: _continuarOuvindo,
-            emptyMessage: 'Nenhuma música ouvida recentemente',
-          ),
-        ),
-        const SizedBox(height: 32),
-        _SectionTitle('Músicas mais populares'),
-        const SizedBox(height: 8),
-        SizedBox(
-          height: 200,
-          child: _MusicHorizontalList(
-            future: _musicasMaisPopulares,
-            emptyMessage: 'Nenhuma música popular encontrada',
-          ),
-        ),
-      ],
-    );
-  }
-}
+    return Scaffold(
+      body:pages[SelectedIndex],
 
-class _SectionTitle extends StatelessWidget {
-  final String title;
+      appBar: AppBar(
+        title: Text('Aplicativo de música',style: GoogleFonts.nunito(
+            fontSize: 20,
+            color: Colors.white
+        ),),
+        backgroundColor: Colors.black,
 
-  const _SectionTitle(this.title);
+      ),
 
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      title,
-      style: GoogleFonts.nunito(fontSize: 20, fontWeight: FontWeight.w600),
-    );
-  }
-}
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: SelectedIndex,
 
-class _MusicHorizontalList extends StatelessWidget {
-  final Future<List<Music>> future;
-  final String emptyMessage;
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Pesquisar'),
+          BottomNavigationBarItem(icon: Icon(Icons.library_music), label: 'Library'),
+        ],
 
-  const _MusicHorizontalList({
-    required this.future,
-    required this.emptyMessage,
-  });
+        onTap: (index){
+          setState(() {
+            SelectedIndex = index;
+          });
+        },
+      ),
 
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder<List<Music>>(
-      future: future,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
-        }
-
-        if (snapshot.hasError) {
-          return Center(child: Text('Erro ao carregar: ${snapshot.error}'));
-        }
-
-        final musicas = snapshot.data ?? const <Music>[];
-        if (musicas.isEmpty) {
-          return Center(child: Text(emptyMessage));
-        }
-
-        return ListView.separated(
-          scrollDirection: Axis.horizontal,
-          itemCount: musicas.length,
-          separatorBuilder: (_, __) => const SizedBox(width: 10),
-          itemBuilder: (context, i) {
-            return MusicCard(
-              music: musicas[i],
-              width: 200,
-              height: 200,
-            );
-          },
-        );
-      },
     );
   }
 }

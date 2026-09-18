@@ -19,6 +19,7 @@ class _SplashPageState extends State<SplashPage>{
   }
 
   loadData() async {
+    await Future.delayed(Duration(seconds: 5));
     if (await prefs.getUserStatus()) {
       Navigator.pushReplacement(
           context,
