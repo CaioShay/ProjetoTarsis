@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:projeto/db/api_handler.dart';
 import 'package:projeto/widgets/music_card.dart';
 import 'package:projeto/db/music_dao.dart';
 import 'package:projeto/domain/Music.dart';
@@ -14,6 +15,7 @@ class ExplorePage extends StatefulWidget {
 class _ExplorePageState extends State<ExplorePage> {
   late Future<List<Music>> _musicasMaisPopulares;
   late Future<List<Music>> _continuarOuvindo;
+  ApiHandler apiHandler = ApiHandler();
 
   @override
   void initState() {
@@ -23,12 +25,13 @@ class _ExplorePageState extends State<ExplorePage> {
   }
 
   void loadData()async{
-    _musicasMaisPopulares = MusicDao().getMaisReproduzidas();
+    _musicasMaisPopulares = ApiHandler().getMaisReproduzidas();
     _continuarOuvindo = MusicDao().getHistorico();
   }
 
   @override
   Widget build(BuildContext context) {
+    apiHandler.getMaisReproduzidas();
     return ListView(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       children: [

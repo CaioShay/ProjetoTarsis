@@ -161,6 +161,11 @@
       ]
     },
     {
+      "name": "meta",
+      "version": "1.17.0",
+      "dependencies": []
+    },
+    {
       "name": "http",
       "version": "1.6.0",
       "dependencies": [
@@ -259,6 +264,11 @@
       ]
     },
     {
+      "name": "vector_math",
+      "version": "2.2.0",
+      "dependencies": []
+    },
+    {
       "name": "stack_trace",
       "version": "1.12.1",
       "dependencies": [
@@ -280,7 +290,7 @@
     },
     {
       "name": "matcher",
-      "version": "0.12.20",
+      "version": "0.12.19",
       "dependencies": [
         "async",
         "meta",
@@ -291,7 +301,7 @@
     },
     {
       "name": "test_api",
-      "version": "0.7.12",
+      "version": "0.7.10",
       "dependencies": [
         "async",
         "boolean_selector",
@@ -710,16 +720,6 @@
         "meta",
         "pub_semver"
       ]
-    },
-    {
-      "name": "meta",
-      "version": "1.19.0",
-      "dependencies": []
-    },
-    {
-      "name": "vector_math",
-      "version": "2.4.2",
-      "dependencies": []
     }
   ],
   "configVersion": 1

@@ -3,6 +3,7 @@ import 'package:projeto/db/user_dao.dart';
 import 'package:projeto/db/shared_prefs.dart';
 import 'package:projeto/pages/explore.dart';
 import 'package:projeto/pages/home.dart';
+import 'package:projeto/db/api_handler.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -17,6 +18,17 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController controller1 = TextEditingController();
   TextEditingController controller2 = TextEditingController();
 
+  @override
+  void initState(){
+    super.initState();
+
+
+  }
+
+  void loadData() async{
+
+
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
