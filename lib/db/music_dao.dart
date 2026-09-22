@@ -17,13 +17,13 @@ class MusicDao {
   //     musics.add(music);
   //   }
 
-    // return musics;
+  // return musics;
   // }
 
   Future<List<Music>> getHistorico() async{
     Database db = await DBHelper().initDB();
     List<Music> musics = [];
-    
+
     var listResult = await db.rawQuery('SELECT * FROM HISTORICO ORDER BY HISTORICO.id DESC');
 
     for (var json in listResult){
@@ -38,7 +38,7 @@ class MusicDao {
   Future<List<Music>> pesquisar(String text) async{
     Database db = await DBHelper().initDB();
     List<Music> musics = [];
-    
+
     var listResult = await db.rawQuery('Select * FROM MUSIC WHERE titulo LIKE ?;',['$text%']);
 
     for (var json in listResult){
