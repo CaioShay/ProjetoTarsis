@@ -21,7 +21,7 @@ class _StateLibrary extends State<Library>{
   }
 
   void loadData() async{
-    musics = await MusicDao().getMaisReproduzidas();
+    musics = await MusicDao().getHistorico();
     setState(() {});
   }
   @override

@@ -13,59 +13,14 @@ class DBHelper {
   }
 
   FutureOr<void> onCreateDB(Database db, int version) async {
-    String sql = '''CREATE TABLE MUSIC (
+    String sql = '''CREATE TABLE HISTORICO (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
-      titulo TEXT NOT NULL,
-      audio_path TEXT NOT NULL,
-      image_url TEXT,
-      reproducoes INTEGER NOt NULL
+      id_musica TEXT NOT NULL
     );''';
 
     await db.execute(sql);
 
-    //Adcionando BAD de Michael Jackson
-    sql =
-        '''INSERT INTO MUSIC (titulo,image_url,audio_path,reproducoes) VALUES(
-        'Bad',
-        'https://upload.wikimedia.org/wikipedia/pt/5/51/Michael_Jackson_-_Bad.png',
-        'audio/Bad.mp3',
-        1000000
-        );
-    ''';
-
-    await db.execute(sql);
-
-    sql =
-    '''INSERT INTO MUSIC (titulo,image_url,audio_path,reproducoes) VALUES(
-        'Eye of The Tiger',
-        'https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/Eye_of_the_Tiger_Survivor.jpg/250px-Eye_of_the_Tiger_Survivor.jpg',
-        'audio/Bad.mp3',
-        500000
-        );
-    ''';
-
-    await db.execute(sql);
-
-    sql =
-    '''INSERT INTO MUSIC (titulo,image_url,audio_path,reproducoes) VALUES(
-        'Feel Good Inc.',
-        'https://upload.wikimedia.org/wikipedia/pt/3/38/Feel_Good_Inc._single.jpg',
-        'audio/Bad.mp3',
-        450000
-        );
-    ''';
-
-    await db.execute(sql);
-
-    sql = '''CREATE TABLE HISTORICO (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      id_musica INTEGER NOT NULL,
-      FOREIGN KEY (id_musica) REFERENCES MUSIC(id)
-    );''';
-
-    await db.execute(sql);
-
-    sql = '''INSERT INTO HISTORICO (id_musica) VALUES (1);''';
+    sql = '''INSERT INTO HISTORICO (id_musica) VALUES ('54d46c91-9ed5-6620-8f1e-b4ee264bc228');''';
 
     await db.execute(sql);
   }

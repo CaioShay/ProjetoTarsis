@@ -6,6 +6,7 @@ class MusicCard extends StatelessWidget {
   late Music music;
   late double width;
   late double height;
+
   MusicCard({super.key, required this.music, required this.width,required this.height});
 
   @override

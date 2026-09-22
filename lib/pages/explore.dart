@@ -78,6 +78,7 @@ class _MusicHorizontalList extends StatelessWidget {
         }
 
         if (snapshot.hasError) {
+          print(snapshot.error);
           return Center(child: Text('Erro ao carregar: ${snapshot.error}'));
         }
 
