@@ -4,26 +4,21 @@ import 'package:projeto/domain/Music.dart';
 Dio dio = Dio();
 
 class ApiHandler {
-    static List<Map<String, dynamic>>? data;
-
-    Future<List<Map<String, dynamic>>?> load_api() async {
-        if (data != null) {
-            return data;
-        }
+    Future<List<Map<String, dynamic>>> load_api() async {
 
         final response = await dio.get('https://api.freetouse.com/v3/music/tracks/All');
 
-        data = response.data;
-
-        return data;
+        return List<Map<String, dynamic>>.from(response.data['data']);
     }
 
     Future<List<Music>> getMaisReproduzidas() async{
-        await load_api();
-
+        List<Map<String, dynamic>> data = await load_api();
+        print("data");
+        print(data);
+        
         List<Map<String, dynamic>> pegarTop10() {
 
-            final ordenadas = [...?data];
+            final ordenadas = [...data];
 
             ordenadas.sort(
                     (a, b) => (b['views'] as num).compareTo(a['views'] as num),
@@ -70,19 +65,18 @@ class ApiHandler {
             );
         }
 
-        print(data);
-
         return result;
     }
 
     Future<Music> getById(String id) async{
         final response = await dio.get('https://api.freetouse.com/v3/music/tracks/'+id);
 
-        List<Map<String,dynamic>> music = response.data['data'];
+        print(response.data);
+        Map<String,dynamic> music = response.data['data'];
 
         return Music(
             titulo: music['title'],
-            audio_path: music['files'],['mp3'],
+            audio_path: music['files']['mp3'],
             image_url: music['thumbnails']['sm'],
         );
     }

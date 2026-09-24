@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto/db/user_dao.dart';
 import 'package:projeto/widgets/music_card.dart';
 import 'package:projeto/domain/Music.dart';
 import 'package:projeto/db/music_dao.dart';
@@ -21,19 +22,33 @@ class _StateLibrary extends State<Library>{
   }
 
   void loadData() async{
-    musics = await MusicDao().getHistorico();
     setState(() {});
   }
+
   @override
   Widget build(BuildContext context){
-    return GridView.builder(
-      itemCount: musics.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2
-        ),
-        itemBuilder: (context,i){
-          return MusicCard(music: musics[i], width: 400, height: 400);
-        });
-  }
+    return FutureBuilder(future: MusicDao().getHistorico(), builder: (context,snapshot){
+      if (snapshot.connectionState == ConnectionState.waiting){
+        return CircularProgressIndicator();
+      }
+      if (snapshot.hasError){
+        return CircularProgressIndicator();
+      }
 
+      final musics = snapshot.data ?? const <Music>[];
+
+      if (musics.isEmpty){
+        return Text('No musics found');
+      }
+
+      return GridView.builder(
+          itemCount: musics.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3
+      ),
+          itemBuilder: (context,index){
+            return MusicCard(music: musics[index], width: 1000, height: 1000,);
+      });
+    });;
+  }
 }

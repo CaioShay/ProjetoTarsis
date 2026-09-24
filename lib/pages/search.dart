@@ -46,7 +46,7 @@ class _StateSearch extends State<Search>{
                 crossAxisCount: 2,
               ),
               itemBuilder: (context,i){
-                return MusicCard(music: searched_musics[i],width: double.infinity,height: 400,);
+                return Center(child: MusicCard(music: searched_musics[i],width: double.infinity,height: 400,));
               })
         )
       ],

@@ -79,6 +79,7 @@ class _MusicHorizontalList extends StatelessWidget {
 
         if (snapshot.hasError) {
           print(snapshot.error);
+          throw Exception(snapshot.error);
           return Center(child: Text('Erro ao carregar: ${snapshot.error}'));
         }
 
@@ -95,7 +96,7 @@ class _MusicHorizontalList extends StatelessWidget {
             return MusicCard(
               music: musicas[i],
               width: 200,
-              height: 200,
+              height:200,
             );
           },
         );
