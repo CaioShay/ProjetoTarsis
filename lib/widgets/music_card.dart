@@ -14,6 +14,7 @@ class MusicCard extends StatelessWidget {
     return SizedBox(
       width: width,
       height: height,
+
       child: Card(
         elevation: 5,
         color: Color.fromRGBO(100,100,100,.8),

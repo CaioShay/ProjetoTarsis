@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto/db/api_handler.dart';
 import 'package:projeto/domain/Music.dart';
 import 'package:projeto/db/music_dao.dart';
 import 'package:projeto/widgets/music_card.dart';
@@ -12,8 +13,8 @@ class Search extends StatefulWidget{
 
 class _StateSearch extends State<Search>{
   TextEditingController controller = TextEditingController();
-  List<Music> searched_musics = [];
-  
+  Future<List<Music>> searched_musics = ApiHandler().search('');
+
   @override
   void initState(){
     super.initState();
@@ -24,11 +25,12 @@ class _StateSearch extends State<Search>{
   void on_searched() async{
     String text = controller.text;
 
-    searched_musics = await MusicDao().pesquisar(text);
+    searched_musics = ApiHandler().search(text);
     setState(() {
       
     });
   }
+
   @override
   Widget build(BuildContext context){
     return Column(
@@ -39,16 +41,22 @@ class _StateSearch extends State<Search>{
         hintText: 'Pesquisar',
         controller: controller,
       ),
-        Expanded(
-          child: GridView.builder(
-            itemCount: searched_musics.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-              ),
-              itemBuilder: (context,i){
-                return Center(child: MusicCard(music: searched_musics[i],width: double.infinity,height: 400,));
-              })
-        )
+        FutureBuilder(future: searched_musics, builder: (context,snapshot){
+          if(snapshot.connectionState == ConnectionState.waiting){
+            return CircularProgressIndicator();
+          }
+
+          if (snapshot.hasError){
+            return Text(snapshot.error.toString());
+          }
+          final musics = snapshot.data ?? <Music>[];
+
+          if (musics.isEmpty){
+            return Text('Music not found');
+          }
+
+          return Text('foi');
+        })
       ],
     );
   }

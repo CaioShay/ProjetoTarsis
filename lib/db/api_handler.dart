@@ -4,6 +4,8 @@ import 'package:projeto/domain/Music.dart';
 Dio dio = Dio();
 
 class ApiHandler {
+    static List<Map<String, dynamic>>? data;
+
     Future<List<Map<String, dynamic>>> load_api() async {
 
         final response = await dio.get('https://api.freetouse.com/v3/music/tracks/All');
@@ -12,13 +14,13 @@ class ApiHandler {
     }
 
     Future<List<Music>> getMaisReproduzidas() async{
-        List<Map<String, dynamic>> data = await load_api();
+        if (data == null){data = await load_api();}
         print("data");
         print(data);
         
         List<Map<String, dynamic>> pegarTop10() {
 
-            final ordenadas = [...data];
+            final ordenadas = [...?data];
 
             ordenadas.sort(
                     (a, b) => (b['views'] as num).compareTo(a['views'] as num),
@@ -47,10 +49,11 @@ class ApiHandler {
     }
 
     Future<List<Music>> search(String query) async{
-        var list = await load_api();
+        if (data == null){data = await load_api();}
 
-        var coiso =list?.where((item){
-            return (item['title'].toString().toLowerCase().contains(query));
+        var coiso = data?.where((item){
+            print(item['tittle']);
+            return (item['title'].toString().toLowerCase().contains(query.toLowerCase()));
         });
 
         final List<Music> result = [];
