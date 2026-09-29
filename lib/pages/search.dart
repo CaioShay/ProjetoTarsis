@@ -55,7 +55,12 @@ class _StateSearch extends State<Search>{
             return Text('Music not found');
           }
 
-          return Text('foi');
+          return Expanded(child: GridView.builder(
+              itemCount: musics.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+              itemBuilder: (context,i){
+                return MusicCard(music: musics[i], width: 200, height: 200);
+              }));
         })
       ],
     );

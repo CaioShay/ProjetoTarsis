@@ -15,8 +15,6 @@ class ApiHandler {
 
     Future<List<Music>> getMaisReproduzidas() async{
         if (data == null){data = await load_api();}
-        print("data");
-        print(data);
         
         List<Map<String, dynamic>> pegarTop10() {
 
@@ -42,8 +40,6 @@ class ApiHandler {
                 ),
             );
         }
-
-        print(data);
 
         return result;
     }

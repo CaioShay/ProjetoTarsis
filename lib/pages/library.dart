@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:projeto/db/user_dao.dart';
 import 'package:projeto/widgets/music_card.dart';
 import 'package:projeto/domain/Music.dart';
 import 'package:projeto/db/music_dao.dart';

@@ -41,7 +41,7 @@ class _SplashPageState extends State<SplashPage>{
   Widget build(BuildContext context){
     // Adicionei um Scaffold para evitar que a tela de loading fique com fundo preto
     return Scaffold(
-      body: Center(child: Text('Loading')),
+      body: Center(child:CircularProgressIndicator()),
     );
   }
 }
