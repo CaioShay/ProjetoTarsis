@@ -35,18 +35,23 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(),
       body: Column(
         children: [
+          Text('Usuário',style: TextStyle(fontSize: 25)),
           TextField(
             controller: controller1,
             decoration: InputDecoration(
+              hint: Text('Insira o usuário'),
               border: OutlineInputBorder(
+
                 borderRadius: BorderRadius.circular(15),
               ),
             ),
           ),
           SizedBox(height: 20),
+          Text('Senha',style: TextStyle(fontSize: 25),),
           TextField(
             controller: controller2,
             decoration: InputDecoration(
+              hint: Text('Insira a senha'),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(15),
               ),
@@ -66,6 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                 controller1.text,
                 controller2.text,
               );
+
               if (success) {
                 await prefs.setUserStatus(true);
 

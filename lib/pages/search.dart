@@ -43,7 +43,7 @@ class _StateSearch extends State<Search>{
       ),
         FutureBuilder(future: searched_musics, builder: (context,snapshot){
           if(snapshot.connectionState == ConnectionState.waiting){
-            return CircularProgressIndicator();
+            return Center(child: CircularProgressIndicator(),);
           }
 
           if (snapshot.hasError){

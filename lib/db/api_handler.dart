@@ -21,7 +21,7 @@ class ApiHandler {
             final ordenadas = [...?data];
 
             ordenadas.sort(
-                    (a, b) => (b['views'] as num).compareTo(a['views'] as num),
+                    (a, b) => (b['views']).compareTo(a['views']),
             );
 
             return ordenadas.take(10).toList();
@@ -48,8 +48,7 @@ class ApiHandler {
         if (data == null){data = await load_api();}
 
         var coiso = data?.where((item){
-            print(item['tittle']);
-            return (item['title'].toString().toLowerCase().contains(query.toLowerCase()));
+            return (item['title'].toLowerCase().contains(query.toLowerCase()));
         });
 
         final List<Music> result = [];
