@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:projeto/pages/explore.dart';
 import 'package:projeto/pages/search.dart';
 import 'package:projeto/pages/library.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:projeto/pages/homeMap.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,7 +18,8 @@ class _HomePageState extends State<HomePage> {
   final pages = [
     ExplorePage(),
     Search(),
-    Library()
+    Library(),
+    HomeMap(),
   ];
 
   @override
@@ -40,6 +43,7 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Pesquisar'),
           BottomNavigationBarItem(icon: Icon(Icons.library_music), label: 'Library'),
+          BottomNavigationBarItem(icon: Icon(Icons.map), label: 'Mapa'),
         ],
 
         onTap: (index){

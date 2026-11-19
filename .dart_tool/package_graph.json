@@ -10,7 +10,9 @@
         "cupertino_icons",
         "dio",
         "flutter",
+        "geocoding",
         "google_fonts",
+        "google_maps_flutter",
         "path",
         "shared_preferences",
         "sqflite"
@@ -63,6 +65,27 @@
         "stream_channel",
         "test_api",
         "vector_math"
+      ]
+    },
+    {
+      "name": "geocoding",
+      "version": "5.0.1",
+      "dependencies": [
+        "flutter",
+        "geocoding_android",
+        "geocoding_darwin",
+        "geocoding_platform_interface"
+      ]
+    },
+    {
+      "name": "google_maps_flutter",
+      "version": "2.19.0",
+      "dependencies": [
+        "flutter",
+        "google_maps_flutter_android",
+        "google_maps_flutter_ios",
+        "google_maps_flutter_platform_interface",
+        "google_maps_flutter_web"
       ]
     },
     {
@@ -162,7 +185,7 @@
     },
     {
       "name": "meta",
-      "version": "1.17.0",
+      "version": "1.19.0",
       "dependencies": []
     },
     {
@@ -265,7 +288,7 @@
     },
     {
       "name": "vector_math",
-      "version": "2.2.0",
+      "version": "2.4.4",
       "dependencies": []
     },
     {
@@ -290,7 +313,7 @@
     },
     {
       "name": "matcher",
-      "version": "0.12.19",
+      "version": "0.12.20",
       "dependencies": [
         "async",
         "meta",
@@ -301,7 +324,7 @@
     },
     {
       "name": "test_api",
-      "version": "0.7.10",
+      "version": "0.7.12",
       "dependencies": [
         "async",
         "boolean_selector",
@@ -312,6 +335,78 @@
         "stream_channel",
         "string_scanner",
         "term_glyph"
+      ]
+    },
+    {
+      "name": "geocoding_darwin",
+      "version": "1.0.3",
+      "dependencies": [
+        "flutter",
+        "geocoding_platform_interface",
+        "plugin_platform_interface"
+      ]
+    },
+    {
+      "name": "geocoding_android",
+      "version": "5.1.0",
+      "dependencies": [
+        "flutter",
+        "geocoding_platform_interface",
+        "meta"
+      ]
+    },
+    {
+      "name": "geocoding_platform_interface",
+      "version": "5.0.0",
+      "dependencies": [
+        "flutter",
+        "meta",
+        "plugin_platform_interface"
+      ]
+    },
+    {
+      "name": "google_maps_flutter_web",
+      "version": "0.6.5",
+      "dependencies": [
+        "collection",
+        "flutter",
+        "flutter_web_plugins",
+        "google_maps",
+        "google_maps_flutter_platform_interface",
+        "sanitize_html",
+        "stream_transform",
+        "web"
+      ]
+    },
+    {
+      "name": "google_maps_flutter_platform_interface",
+      "version": "2.18.0",
+      "dependencies": [
+        "collection",
+        "flutter",
+        "plugin_platform_interface",
+        "stream_transform"
+      ]
+    },
+    {
+      "name": "google_maps_flutter_ios",
+      "version": "2.18.7",
+      "dependencies": [
+        "flutter",
+        "google_maps_flutter_platform_interface",
+        "meta",
+        "stream_transform"
+      ]
+    },
+    {
+      "name": "google_maps_flutter_android",
+      "version": "2.21.0",
+      "dependencies": [
+        "flutter",
+        "flutter_plugin_android_lifecycle",
+        "google_maps_flutter_platform_interface",
+        "meta",
+        "stream_transform"
       ]
     },
     {
@@ -595,6 +690,34 @@
       ]
     },
     {
+      "name": "stream_transform",
+      "version": "2.1.2",
+      "dependencies": []
+    },
+    {
+      "name": "sanitize_html",
+      "version": "2.2.0",
+      "dependencies": [
+        "html",
+        "meta"
+      ]
+    },
+    {
+      "name": "google_maps",
+      "version": "8.3.0",
+      "dependencies": [
+        "meta",
+        "web"
+      ]
+    },
+    {
+      "name": "flutter_plugin_android_lifecycle",
+      "version": "2.0.35",
+      "dependencies": [
+        "flutter"
+      ]
+    },
+    {
       "name": "typed_data",
       "version": "1.4.0",
       "dependencies": [
@@ -659,6 +782,14 @@
       "dependencies": []
     },
     {
+      "name": "html",
+      "version": "0.15.7",
+      "dependencies": [
+        "csslib",
+        "source_span"
+      ]
+    },
+    {
       "name": "pub_semver",
       "version": "2.2.0",
       "dependencies": [
@@ -702,6 +833,13 @@
       "name": "args",
       "version": "2.7.0",
       "dependencies": []
+    },
+    {
+      "name": "csslib",
+      "version": "1.0.2",
+      "dependencies": [
+        "source_span"
+      ]
     },
     {
       "name": "yaml",
