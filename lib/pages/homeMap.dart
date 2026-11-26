@@ -10,12 +10,13 @@ class HomeMap extends StatefulWidget {
 }
 
 class _HomeMapState extends State<HomeMap>{
+  String city = '...';
+
   Set<Marker> markers = {};
 
   Future<void> selectLocation(LatLng position) async{
-    String city = await Geocoding().getCityFromCordinates(position);
-
-    markers = {(Marker(markerId: MarkerId('marcador'+markers.length.toString()),position: position, infoWindow: InfoWindow(title: 'Tommeeee')))};
+    city = await Geocoding().getCityFromCordinates(position);
+    markers = {(Marker(markerId: MarkerId('marcador'+markers.length.toString()),position: position, infoWindow: InfoWindow(title: city)))};
     setState(() {
 
     });
@@ -24,11 +25,14 @@ class _HomeMapState extends State<HomeMap>{
   
   @override
   Widget build(BuildContext context){
-    return GoogleMap(
+    return Column(children: [
+      Text(city,style: TextStyle(fontSize: 24),),
+      Expanded(child: GoogleMap(
         initialCameraPosition: CameraPosition(target: LatLng(0,0)),
-      onTap: selectLocation,
-      markers: markers,
-    );
+        onTap: selectLocation,
+        markers: markers,
+      ))
+    ],);
   }
 }
 
