@@ -1,6 +1,6 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:geocoding/geocoding.dart';
+import 'package:projeto/API/geocoding.dart';
 
 class HomeMap extends StatefulWidget {
   @override
@@ -13,7 +13,7 @@ class _HomeMapState extends State<HomeMap>{
   Set<Marker> markers = {};
 
   Future<void> selectLocation(LatLng position) async{
-    List<Placemark> placeMarks =  await placemarkFromCondinates();
+    String city = await Geocoding().getCityFromCordinates(position);
 
     markers = {(Marker(markerId: MarkerId('marcador'+markers.length.toString()),position: position, infoWindow: InfoWindow(title: 'Tommeeee')))};
     setState(() {
